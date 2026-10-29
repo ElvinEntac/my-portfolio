@@ -4,22 +4,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.getElementById("menu-toggle");
   const navLinks = document.getElementById("nav-links");
 
-  menuToggle.addEventListener("click", () => {
-    const isOpen = navLinks.classList.toggle("open");
-    menuToggle.classList.toggle("active", isOpen);
-    menuToggle.setAttribute("aria-expanded", String(isOpen));
-  });
-
-  // Close the menu after choosing a section
-  navLinks.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("open");
-      menuToggle.classList.remove("active");
-      menuToggle.setAttribute("aria-expanded", "false");
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.classList.toggle("active", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
     });
-  });
 
-  // Animate sections when they appear on screen
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  // Animate sections when they appear
   const items = document.querySelectorAll(".reveal");
 
   if ("IntersectionObserver" in window) {
@@ -38,21 +39,26 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Automatically update the footer year
-  document.getElementById("year").textContent =
-    new Date().getFullYear();
+  const year = document.getElementById("year");
 
-  // Demo contact form
+  if (year) {
+    year.textContent = new Date().getFullYear();
+  }
+
+  // Contact form (demo only)
   const form = document.getElementById("contact-form");
   const message = document.getElementById("form-message");
 
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
+  if (form && message) {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
+      const name = document.getElementById("name")?.value.trim();
 
-    message.textContent =
-      `Thanks, ${name}! This demo form does not send emails yet.`;
+      message.textContent =
+        `Thanks, ${name || "there"}! Your form was submitted for this demo. Messages are not actually sent.`;
 
-    form.reset();
-  });
+      form.reset();
+    });
+  }
 });
