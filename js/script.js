@@ -50,15 +50,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const message = document.getElementById("form-message");
 
   if (form && message) {
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
+    
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
 
-      const name = document.getElementById("name")?.value.trim();
+  const name = document.getElementById("name")?.value.trim();
 
-      message.textContent =
-        `Thanks, ${name || "there"}! Your form was submitted for this demo. Messages are not actually sent.`;
+  message.textContent =
+    `Thanks, ${name || "there"}! Your form was submitted for this demo. Messages are not actually sent.`;
 
-      form.reset();
+  // Keep the user at the contact form
+  message.scrollIntoView({ behavior: "smooth", block: "center" });
+
+  form.reset();
+});
+
     });
   }
 });
