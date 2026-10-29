@@ -1,0 +1,322 @@
+
+/* =========================
+   BASIC SETTINGS
+========================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: clip;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b1120;
+    color: #f4f7fb;
+    line-height: 1.7;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: clip;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+section {
+    padding: 90px 8%;
+    scroll-margin-top: 100px;
+    min-width: 0;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    line-height: 1.2;
+    margin: 20px 0;
+    overflow-wrap: anywhere;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #aab7ca;
+    margin-bottom: 18px;
+}
+
+.hero h1 span,
+.tag {
+    color: #4f8cff;
+}
+
+/* =========================
+   STICKY NAVIGATION
+========================= */
+header {
+    background: #101b2e;
+    border-bottom: 1px solid #26344b;
+    /* Keep navbar visible during scrolling */
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+}
+
+.navbar {
+    width: 100%;
+    max-width: 1600px;
+    min-height: 75px;
+    margin: 0 auto;
+    padding: 15px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    color: #8ab4ff;
+    font-size: 1.4rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+#nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+}
+
+    #nav-links a {
+        display: inline-block;
+        transition: color 0.2s ease;
+    }
+
+        #nav-links a:hover {
+            color: #8ab4ff;
+        }
+
+#menu-toggle {
+    display: none;
+    background: #1a2a43;
+    color: white;
+    border: 0;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+/* =========================
+   HOME / HERO SECTION
+========================= */
+.hero {
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: radial-gradient( circle at top right, #1a3155, #0b1120 55% );
+}
+
+    .hero h2 {
+        max-width: 650px;
+    }
+
+    .hero > p:not(.tag) {
+        max-width: 600px;
+    }
+
+/* =========================
+   BUTTONS
+========================= */
+.btn {
+    display: inline-block;
+    background: #4f8cff;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    border: 1px solid #4f8cff;
+    margin: 8px 8px 8px 0;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s, transform 0.3s;
+}
+
+    .btn:hover {
+        background: #2868d7;
+        transform: translateY(-3px);
+    }
+
+.btn-outline {
+    background: transparent;
+    color: #8ab4ff;
+}
+
+/* =========================
+   CONTENT AND CARDS
+========================= */
+.section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 25px;
+}
+
+.card {
+    min-width: 0;
+    background: #142239;
+    border: 1px solid #293a55;
+    border-radius: 15px;
+    padding: 25px;
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+        border-color: #4f8cff;
+    }
+
+    .card h3 {
+        color: #8ab4ff;
+        margin-bottom: 10px;
+    }
+
+.tech {
+    color: #8ab4ff;
+    font-size: 0.9rem;
+}
+
+/* =========================
+   CONTACT FORM
+========================= */
+form {
+    width: 100%;
+    max-width: 600px;
+    display: grid;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+input,
+textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 14px;
+    background: #142239;
+    color: white;
+    border: 1px solid #354761;
+    border-radius: 8px;
+    font: inherit;
+}
+
+textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+    input:focus,
+    textarea:focus {
+        outline: 2px solid #4f8cff;
+    }
+
+form .btn {
+    width: fit-content;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    text-align: center;
+    padding: 30px 15px;
+    background: #101b2e;
+    border-top: 1px solid #26344b;
+}
+
+/* =========================
+   SECTION ANIMATIONS
+========================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s, transform 0.7s;
+}
+
+    .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+/* =========================
+   TABLET AND MOBILE
+========================= */
+@media (max-width: 700px) {
+    .navbar {
+        flex-wrap: wrap;
+        padding: 12px 6%;
+    }
+
+    #menu-toggle {
+        display: block;
+    }
+
+    #nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 15px 0;
+    }
+
+        #nav-links.open {
+            display: flex;
+        }
+
+    section {
+        padding: 65px 6%;
+    }
+
+    .cards {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .hero {
+        min-height: 75vh;
+    }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 10vw, 3.5rem);
+        }
+
+        .hero h2 {
+            font-size: clamp(1.4rem, 5vw, 2rem);
+        }
+}
