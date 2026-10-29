@@ -319,4 +319,9 @@ footer {
         .hero h2 {
             font-size: clamp(1.4rem, 5vw, 2rem);
         }
+    .form-notice {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        margin-top: 8px;
+    }
 }
