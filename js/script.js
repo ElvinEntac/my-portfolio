@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
       menuToggle.setAttribute("aria-expanded", String(isOpen));
     });
 
-    // Close the menu after choosing a section
     navLinks.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         navLinks.classList.remove("open");
@@ -21,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Animate sections when they appear on screen
+  // Animate sections when they appear
   const items = document.querySelectorAll(".reveal");
 
   if ("IntersectionObserver" in window) {
@@ -46,30 +45,20 @@ document.addEventListener("DOMContentLoaded", () => {
     year.textContent = new Date().getFullYear();
   }
 
-  // Contact form (demo only)
+  // Demo contact form
   const form = document.getElementById("contact-form");
   const formMessage = document.getElementById("form-message");
-  const contactSection = document.getElementById("contact");
 
   if (form && formMessage) {
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      event.stopPropagation();
 
       const name = document.getElementById("name").value.trim();
 
       formMessage.textContent =
-        `Thanks, ${name || "there"}! This demo does not send emails yet.`;
+        `Thanks, ${name || "there"}! This form is a demo and does not send messages yet.`;
 
       form.reset();
-
-      // Keep the page at the contact section
-      if (contactSection) {
-        contactSection.scrollIntoView({
-          behavior: "auto",
-          block: "start"
-        });
-      }
     });
   }
 });
