@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
       menuToggle.setAttribute("aria-expanded", String(isOpen));
     });
 
+    // Close the menu after choosing a section
     navLinks.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         navLinks.classList.remove("open");
@@ -20,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Animate sections when they appear
+  // Animate sections when they appear on screen
   const items = document.querySelectorAll(".reveal");
 
   if ("IntersectionObserver" in window) {
@@ -47,27 +48,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Contact form (demo only)
   const form = document.getElementById("contact-form");
-  const message = document.getElementById("form-message");
+  const formMessage = document.getElementById("form-message");
+  const contactSection = document.getElementById("contact");
 
-  if (form && message) {
-    
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+  if (form && formMessage) {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
 
-  const name = document.getElementById("name")?.value.trim();
+      const name = document.getElementById("name").value.trim();
 
-  message.textContent =
-    `Thanks, ${name || "there"}! Your form was submitted for this demo. Messages are not actually sent.`;
+      formMessage.textContent =
+        `Thanks, ${name || "there"}! This demo does not send emails yet.`;
 
-  // Keep the user at the contact form
-  document.getElementById("contact").scrollIntoView({
-  behavior: "smooth",
-  block: "start"
-});
+      form.reset();
 
-  form.reset();
-});
-
+      // Keep the page at the contact section
+      if (contactSection) {
+        contactSection.scrollIntoView({
+          behavior: "auto",
+          block: "start"
+        });
+      }
     });
   }
 });
