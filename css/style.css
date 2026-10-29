@@ -25,7 +25,6 @@ body {
     line-height: 1.7;
     width: 100%;
     min-height: 100vh;
-    margin: 0;
     overflow-x: clip;
 }
 
@@ -69,12 +68,11 @@ p {
 }
 
 /* =========================
-   STICKY NAVIGATION
+   NAVIGATION
 ========================= */
 header {
     background: #101b2e;
     border-bottom: 1px solid #26344b;
-    /* Keep navbar visible during scrolling */
     position: sticky;
     top: 0;
     z-index: 9999;
@@ -107,14 +105,14 @@ header {
     list-style: none;
 }
 
-    #nav-links a {
-        display: inline-block;
-        transition: color 0.2s ease;
-    }
+#nav-links a {
+    display: inline-block;
+    transition: color 0.2s ease;
+}
 
-        #nav-links a:hover {
-            color: #8ab4ff;
-        }
+#nav-links a:hover {
+    color: #8ab4ff;
+}
 
 #menu-toggle {
     display: none;
@@ -128,7 +126,7 @@ header {
 }
 
 /* =========================
-   HOME / HERO SECTION
+   HOME SECTION
 ========================= */
 .hero {
     min-height: 85vh;
@@ -136,16 +134,17 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    background: radial-gradient( circle at top right, #1a3155, #0b1120 55% );
+    background: radial-gradient(
+        circle at top right,
+        #1a3155,
+        #0b1120 55%
+    );
 }
 
-    .hero h2 {
-        max-width: 650px;
-    }
-
-    .hero > p:not(.tag) {
-        max-width: 600px;
-    }
+.hero h2,
+.hero > p:not(.tag) {
+    max-width: 650px;
+}
 
 /* =========================
    BUTTONS
@@ -163,10 +162,10 @@ header {
     transition: background 0.3s, transform 0.3s;
 }
 
-    .btn:hover {
-        background: #2868d7;
-        transform: translateY(-3px);
-    }
+.btn:hover {
+    background: #2868d7;
+    transform: translateY(-3px);
+}
 
 .btn-outline {
     background: transparent;
@@ -198,15 +197,15 @@ header {
     transition: border-color 0.3s, transform 0.3s;
 }
 
-    .card:hover {
-        transform: translateY(-5px);
-        border-color: #4f8cff;
-    }
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #4f8cff;
+}
 
-    .card h3 {
-        color: #8ab4ff;
-        margin-bottom: 10px;
-    }
+.card h3 {
+    color: #8ab4ff;
+    margin-bottom: 10px;
+}
 
 .tech {
     color: #8ab4ff;
@@ -241,13 +240,32 @@ textarea {
     resize: vertical;
 }
 
-    input:focus,
-    textarea:focus {
-        outline: 2px solid #4f8cff;
-    }
+input:focus,
+textarea:focus {
+    outline: 2px solid #4f8cff;
+}
 
 form .btn {
     width: fit-content;
+}
+
+/* Contact form notice */
+.form-notice {
+    color: #8da9d8;
+    background-color: #14213a;
+    border-left: 4px solid #4f8cff;
+    padding: 12px 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin: 15px 0 20px;
+    line-height: 1.5;
+}
+
+/* Confirmation message */
+#form-message {
+    color: #8ab4ff;
+    font-size: 14px;
+    overflow-wrap: anywhere;
 }
 
 /* =========================
@@ -269,10 +287,10 @@ footer {
     transition: opacity 0.7s, transform 0.7s;
 }
 
-    .reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 /* =========================
    TABLET AND MOBILE
@@ -296,9 +314,9 @@ footer {
         padding: 15px 0;
     }
 
-        #nav-links.open {
-            display: flex;
-        }
+    #nav-links.open {
+        display: flex;
+    }
 
     section {
         padding: 65px 6%;
@@ -312,28 +330,11 @@ footer {
         min-height: 75vh;
     }
 
-        .hero h1 {
-            font-size: clamp(2.2rem, 10vw, 3.5rem);
-        }
-
-        .hero h2 {
-            font-size: clamp(1.4rem, 5vw, 2rem);
-        }
-    .form-notice {
-        font-size: 0.9rem;
-        opacity: 0.8;
-        margin-top: 8px;
+    .hero h1 {
+        font-size: clamp(2.2rem, 10vw, 3.5rem);
     }
-    
-   .form-notice {
-       color: #8da9d8;
-       background-color: #14213a;
-       border-left: 4px solid #4f8cff;
-       padding: 12px 15px;
-       border-radius: 6px;
-       font-size: 14px;
-       margin: 15px 0 20px;
-       line-height: 1.5;
-   }
 
+    .hero h2 {
+        font-size: clamp(1.4rem, 5vw, 2rem);
+    }
 }
