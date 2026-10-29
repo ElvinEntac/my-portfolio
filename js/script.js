@@ -60,7 +60,10 @@ form.addEventListener("submit", (event) => {
     `Thanks, ${name || "there"}! Your form was submitted for this demo. Messages are not actually sent.`;
 
   // Keep the user at the contact form
-  message.scrollIntoView({ behavior: "smooth", block: "center" });
+  document.getElementById("contact").scrollIntoView({
+  behavior: "smooth",
+  block: "start"
+});
 
   form.reset();
 });
