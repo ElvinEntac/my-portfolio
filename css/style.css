@@ -324,4 +324,16 @@ footer {
         opacity: 0.8;
         margin-top: 8px;
     }
+    
+   .form-notice {
+       color: #8da9d8;
+       background-color: #14213a;
+       border-left: 4px solid #4f8cff;
+       padding: 12px 15px;
+       border-radius: 6px;
+       font-size: 14px;
+       margin: 15px 0 20px;
+       line-height: 1.5;
+   }
+
 }
